@@ -11,11 +11,24 @@ from game import Game
 def main():
     board = Board()
     player1 = Human()
+    print('this is tic tac toe')
+
+    while True:
+        player_mode = input('enter number of players between 1-2 (single vs AI, two player): ').strip()
+        try:
+            player_mode = int(player_mode)
+            if player_mode == 1 or player_mode == 2:
+                break
+            print('try a number between 1 and 2')
+            continue
+        except ValueError:
+            print('enter a number')
+
     player2 = Human()
 
     game = Game(board, 0, player1, player2)
 
-    print('this is tic tac toe')
+
     print('player1 is "X" and player2 is "O"')
 
     while game.check_winner() is None and not game.check_draw():

@@ -19,6 +19,9 @@ class Board:
 
     @property
     def size(self):
+        '''
+            gives the size
+        '''
         return self._size
 
     def cell(self, row, col):
@@ -28,6 +31,9 @@ class Board:
         return self._grid[row][col]
 
     def _in_range(self, row, col):
+        '''
+            checks if in range
+        '''
         return 0 <= row < self._size and 0 <= col < self._size
 
     def place_mark(self, row, col, mark):
@@ -49,6 +55,9 @@ class Board:
                 if self._grid[r][c] == EMPTY]
 
     def is_full(self):
+        '''
+            tells you if full
+        '''
         return not self.empty_cells()
 
     def copy(self):

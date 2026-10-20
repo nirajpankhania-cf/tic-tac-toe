@@ -50,6 +50,9 @@ class hardAI(Player):
     '''
 
     def choose_move(self, board, mark):
+        '''
+            chooses a move
+        '''
         moves = board.empty_cells()
         if not moves:
             raise ValueError("no empty cells left")
@@ -76,6 +79,9 @@ class hardAI(Player):
         return self._rng.choice(best_moves)
 
     def _minimax(self, board, current_mark, ai_mark, maxxing):
+        '''
+            minimax algorithm
+        '''
         #stop when game end
         winner = find_winner(board)
         if winner == ai_mark:
@@ -104,4 +110,7 @@ class hardAI(Player):
 
     @staticmethod
     def _opponent(mark):
+        '''
+            determines the opponents mark
+        '''
         return "O" if mark == "X" else "X"

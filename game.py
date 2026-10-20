@@ -20,9 +20,15 @@ class Game:
 
 
     def check_winner(self):
+        '''
+            checks for a winner
+        '''
         return find_winner(self.board)
 
     def check_draw(self):
+        '''
+            checks for a draw
+        '''
         return self.board.is_full() and self.check_winner() is None
 
     def play_turn(self):
@@ -43,6 +49,10 @@ class Game:
         self.turn += 1
 
 def find_winner(board):
+    '''
+        finds the winner
+        defined at module level for reuse outside of game
+    '''
     size = board.size
     lines = []
     #rows
