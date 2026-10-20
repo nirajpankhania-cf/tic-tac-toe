@@ -1,4 +1,5 @@
 '''
+    board.py
     contains the main board class
 '''
 EMPTY = " "
