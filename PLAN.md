@@ -16,7 +16,7 @@ It should support two players or one player against a computer opponent.
 \
 **Components**
 |File|Purpose|
-|--|--|
+|---|---|
 |board.py|the board class|
 |ai.py|the ai classes|
 |game.py|turns, modes and win/lose checks|
