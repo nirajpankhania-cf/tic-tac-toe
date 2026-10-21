@@ -18,41 +18,17 @@ class Game:
         '''
         return (turn % 2 == 0)
 
+
     def check_winner(self):
-        size = self.board.size
-        lines = []
-        #rows
-        for row in range(size):
-            temp = []
-            for col in range(size):
-                temp.append(self.board.cell(row, col))
-            lines.append(temp)
-
-        #col
-        for col in range(size):
-            temp = []
-            for row in range(size):
-                temp.append(self.board.cell(row, col))
-            lines.append(temp)
-
-        #diag
-        temp = []
-        for i in range(size):
-            temp.append(self.board.cell(i, i))
-        lines.append(temp)
-        temp = []
-        for i in range(size):
-            temp.append(self.board.cell(i, size-1-i))
-        lines.append(temp)
-
-        # winning line
-        for line in lines:
-            if line[0] != ' ' and all(mark == line[0] for mark in line):
-                return line[0]
-
-        return None
+        '''
+            checks for a winner
+        '''
+        return find_winner(self.board)
 
     def check_draw(self):
+        '''
+            checks for a draw
+        '''
         return self.board.is_full() and self.check_winner() is None
 
     def play_turn(self):
@@ -71,3 +47,41 @@ class Game:
                 break
 
         self.turn += 1
+
+def find_winner(board):
+    '''
+        finds the winner
+        defined at module level for reuse outside of game
+    '''
+    size = board.size
+    lines = []
+    #rows
+    for row in range(size):
+        temp = []
+        for col in range(size):
+            temp.append(board.cell(row, col))
+        lines.append(temp)
+
+    #col
+    for col in range(size):
+        temp = []
+        for row in range(size):
+            temp.append(board.cell(row, col))
+        lines.append(temp)
+
+    #diag
+    temp = []
+    for i in range(size):
+        temp.append(board.cell(i, i))
+    lines.append(temp)
+    temp = []
+    for i in range(size):
+        temp.append(board.cell(i, size-1-i))
+    lines.append(temp)
+
+    # winning line
+    for line in lines:
+        if line[0] != ' ' and all(mark == line[0] for mark in line):
+            return line[0]
+
+    return None
