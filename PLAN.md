@@ -28,3 +28,10 @@ It should support two players or one player against a computer opponent.
 
 \
 **Decisions**
+human player and ai player are both subclasses of the same class - other option was to isolate but they share too much 
+x goes first - o could go first but that disobeys standard convention
+
+\
+**What changed**
+obeyed the plan for the most part
+input() in ai.py for human player
